@@ -15,6 +15,10 @@ class UserInformation: Decodable {
 class Info: Decodable {
     var name: Name
     var location: Location
+    var email: Srtring
+    var dob: String
+    var cell: String
+    var picture: Picture
     
     func fullName(user: Info) -> String {
         let fullName = "\(user.name.title.capitalized).  \(user.name.first.capitalized) \(user.name.last.capitalized)"
@@ -40,6 +44,10 @@ class Location: Decodable {
     var city: String
     var state: String
     var postcode: String
+}
+
+class Picture: Decodable {
+    var large: String
 }
 
 extension UserInformation {
