@@ -17,7 +17,7 @@ class Info: Decodable {
     var location: Location
     
     func fullName(user: Info) -> String {
-    let fullName = "\(user.name.title).  \(user.name.first) \(user.name.last)"
+        let fullName = "\(user.name.title.capitalized).  \(user.name.first.capitalized) \(user.name.last.capitalized)"
         
         return fullName
     }
@@ -54,7 +54,7 @@ extension UserInformation {
         do {
             let data = try Data.init(contentsOf: fileURL)
             let userData = try JSONDecoder().decode(UserInformation.self, from: data)
-            info = userData.results
+            info = userData.results.sorted{$0.name.last < $1.name.last}
             
         } catch {
             fatalError("Unable to decode userinfo.json file")
