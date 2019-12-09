@@ -15,58 +15,28 @@ enum AppError: Error {
     
     
 }
-class ImageAPIClient {
-    static let manager = ImageAPIClient()
+
+
+// getting API Image using URLSession
+// clarifying question about the function returning void (Is it because the function finishes running before we retrieve the image?)
+struct ImageAPIClient {
     
-    func getImage(from urlString: String, completionHandler: @escaping (Result<UIImage,AppError>) -> Void) {
+    static func findImage(for urlString: String, completion: @escaping (Result<UIImage, Error>) -> Void) {
         
+        guard let url = URL(string: urlString) else {return}
         
-        guard let url = URL(string: urlString) else {
-            completionHandler(.failure(.invalidURL))
-            return
-        }
-        
-        let dataTask = URLSession.shared.dataTask(with: url) {( data, error, response)
+        let dataTask = URLSession.shared.dataTask(with: url) { (data, response, error) in
+            
+            if let error = error {
+                print("error: \(error)")
+            }
             
             if let data = data {
                 let image = UIImage(data: data)
-            } else { completionHandler(.failure(.noData))
-                return
-            }
-            
-            if let error = error {
-                completionHandler(.failure(.networkClientError))
                 
-            }
-            
-            if let response = response {
-                
-            } else {
-                completionHandler(.failure(.respnseError))
+                completion(.success(image!))
             }
         }
+        dataTask.resume()
     }
-//    //func getImage(from urlStr: String,
-//                  completionHanlder: @escaping (Result<UIImage, AppError>) -> Void) {
-//
-//        guard let url = URL(string: urlStr) else {
-//            completionHanlder(.failure(.badURL))
-//            return
-//        }
-//
-//        NetworkHelper.manager.getData(from: url) { (result) in
-//            switch result {
-//            case let .failure(error):
-//                completionHanlder(.failure(error))
-//            case let .success(data):
-//                guard let onlineImage = UIImage(data: data) else {
-//                    completionHanlder(.failure(.notAnImage))
-//                    return
-//                }
-//                completionHanlder(.success(onlineImage))
-//            }
-//        }
-//    }
-    
-    private init() {}
 }

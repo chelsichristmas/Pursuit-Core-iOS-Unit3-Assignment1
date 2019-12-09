@@ -15,7 +15,7 @@ class UserInformation: Decodable {
 class Info: Decodable {
     var name: Name
     var location: Location
-    var email: Srtring
+    var email: String
     var dob: String
     var cell: String
     var picture: Picture
@@ -48,6 +48,7 @@ class Location: Decodable {
 
 class Picture: Decodable {
     var large: String
+    var thumbnail: String
 }
 
 extension UserInformation {

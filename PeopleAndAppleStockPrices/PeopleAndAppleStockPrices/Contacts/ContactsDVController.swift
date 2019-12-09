@@ -20,13 +20,29 @@ class ContactsDVController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateUI()
 
         
     }
     
+    func loadImage(imageURL: String) -> UIImage {
+        var image: UIImage
+        guard let url = URL(string: imageURL) else {
+          fatalError("bad url: \(imageURL)")
+        }
+        
+        do {
+          let imageData = try Data(contentsOf: url)
+          image = UIImage(data: imageData)!
+        } catch {
+          fatalError("\(error)")
+        }
+        return image
+      }
+    
     func updateUI() {
         nameLabel.text = " \(user!.fullName(user: user!)) "
-        imageView.image = 
+        imageView.image = loadImage(imageURL: user!.picture.large)
         birthdateLabel.text = "DOB: \(user!.dob)"
         phoneLabel.text = "Phone: \(user!.cell)"
         emailLabel.text = "Email: \(user!.email)"
