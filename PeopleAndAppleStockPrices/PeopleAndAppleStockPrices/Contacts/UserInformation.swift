@@ -56,7 +56,7 @@ extension UserInformation {
     
     static func getUserInfo() -> [Info] {
         var info = [Info]()
-        guard let fileURL = Bundle.main.url(forResource: "userinfo", withExtension: "json") else {
+        guard let fileURL = Bundle.main.url(forResource: "userInfo", withExtension: "json") else {
             fatalError("unable to access userinfo.json")
         }
         
