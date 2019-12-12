@@ -175,6 +175,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="Tog-WZ-5x2" kind="show" id="tRd-1m-02N"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -204,11 +207,68 @@
             </objects>
             <point key="canvasLocation" x="1762.3188405797102" y="117.85714285714285"/>
         </scene>
-        <!--Item-->
+        <!--Stocks Detail View Controller-->
+        <scene sceneID="L4B-q3-klh">
+            <objects>
+                <viewController id="Tog-WZ-5x2" customClass="StocksDetailViewController" customModule="PeopleAndAppleStockPrices" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="aOG-fa-NgH">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Open" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAg-aO-iCp">
+                                <rect key="frame" x="20" y="404" width="374" height="20.5"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Date" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIT-LF-ADS">
+                                <rect key="frame" x="20" y="363" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Closing" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lJv-8w-74f">
+                                <rect key="frame" x="20" y="444.5" width="374" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gyX-BK-QCN">
+                                <rect key="frame" x="87" y="113" width="240" height="200"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="w6J-6a-vZN" firstAttribute="trailing" secondItem="dIT-LF-ADS" secondAttribute="trailing" constant="20" id="1dW-Za-533"/>
+                            <constraint firstItem="dIT-LF-ADS" firstAttribute="top" secondItem="aOG-fa-NgH" secondAttribute="topMargin" constant="275" id="2GC-bp-E2X"/>
+                            <constraint firstItem="lJv-8w-74f" firstAttribute="top" secondItem="aAg-aO-iCp" secondAttribute="bottom" constant="20" id="YVN-YE-mIY"/>
+                            <constraint firstItem="dIT-LF-ADS" firstAttribute="leading" secondItem="w6J-6a-vZN" secondAttribute="leading" constant="20" id="aMv-Rd-91c"/>
+                            <constraint firstItem="w6J-6a-vZN" firstAttribute="trailing" secondItem="lJv-8w-74f" secondAttribute="trailing" constant="20" id="h6a-bH-pPM"/>
+                            <constraint firstItem="lJv-8w-74f" firstAttribute="leading" secondItem="w6J-6a-vZN" secondAttribute="leading" constant="20" id="hyr-nj-PYg"/>
+                            <constraint firstItem="aAg-aO-iCp" firstAttribute="leading" secondItem="w6J-6a-vZN" secondAttribute="leading" constant="20" id="qfo-3x-pYV"/>
+                            <constraint firstItem="aAg-aO-iCp" firstAttribute="top" secondItem="dIT-LF-ADS" secondAttribute="bottom" constant="20" id="sus-W7-GGH"/>
+                            <constraint firstItem="w6J-6a-vZN" firstAttribute="trailing" secondItem="aAg-aO-iCp" secondAttribute="trailing" constant="20" id="vhp-75-999"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="w6J-6a-vZN"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="vJx-Yr-2kd"/>
+                    <connections>
+                        <outlet property="closingLabel" destination="lJv-8w-74f" id="jVx-jZ-73D"/>
+                        <outlet property="dateLabel" destination="dIT-LF-ADS" id="dBA-Md-JjK"/>
+                        <outlet property="imageView" destination="gyX-BK-QCN" id="BXY-43-O1j"/>
+                        <outlet property="openingLabel" destination="aAg-aO-iCp" id="RSV-4t-Rf7"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="GFY-ae-mv6" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2689.8550724637685" y="123.88392857142857"/>
+        </scene>
+        <!--Stocks-->
         <scene sceneID="UXl-1b-YQ8">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="AJ5-bv-a6r" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="2Oq-Lh-dwV"/>
+                    <tabBarItem key="tabBarItem" title="Stocks" selectedImage="arrow.up.right.square.fill" catalog="system" id="2Oq-Lh-dwV"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="e4d-T9-j5l">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -242,11 +302,11 @@
             </objects>
             <point key="canvasLocation" x="-57.971014492753625" y="117.85714285714285"/>
         </scene>
-        <!--Item-->
+        <!--Users-->
         <scene sceneID="ud8-Vi-c1d">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="SFK-Lw-f7X" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Item" id="tBX-yj-kzX"/>
+                    <tabBarItem key="tabBarItem" title="Users" selectedImage="rectangle.stack.person.crop.fill" catalog="system" id="tBX-yj-kzX"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ikP-7g-K3s">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -262,4 +322,8 @@
             <point key="canvasLocation" x="852" y="-540"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="arrow.up.right.square.fill" catalog="system" width="64" height="56"/>
+        <image name="rectangle.stack.person.crop.fill" catalog="system" width="64" height="60"/>
+    </resources>
 </document>
